@@ -1,0 +1,283 @@
+@prefix : <https://kiwerk/wissens-ci/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://kiwerk/wissens-ci/> .
+
+<https://kiwerk/wissens-ci/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://kiwerk/wissens-ci/#has_component
+<https://kiwerk/wissens-ci/#has_component> rdf:type owl:ObjectProperty .
+
+
+###  https://kiwerk/wissens-ci/#has_delivery
+<https://kiwerk/wissens-ci/#has_delivery> rdf:type owl:ObjectProperty .
+
+
+###  https://kiwerk/wissens-ci/#has_standard
+<https://kiwerk/wissens-ci/#has_standard> rdf:type owl:ObjectProperty .
+
+
+###  https://kiwerk/wissens-ci/#has_storage
+<https://kiwerk/wissens-ci/#has_storage> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://kiwerk/wissens-ci/#has_delivery_time
+<https://kiwerk/wissens-ci/#has_delivery_time> rdf:type owl:DatatypeProperty .
+
+
+###  https://kiwerk/wissens-ci/#has_height
+<https://kiwerk/wissens-ci/#has_height> rdf:type owl:DatatypeProperty .
+
+
+###  https://kiwerk/wissens-ci/#has_length
+<https://kiwerk/wissens-ci/#has_length> rdf:type owl:DatatypeProperty .
+
+
+###  https://kiwerk/wissens-ci/#has_weight
+<https://kiwerk/wissens-ci/#has_weight> rdf:type owl:DatatypeProperty .
+
+
+###  https://kiwerk/wissens-ci/#has_width
+<https://kiwerk/wissens-ci/#has_width> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://kiwerk/wissens-ci/#CR_Delivery_Tractor_X
+<https://kiwerk/wissens-ci/#CR_Delivery_Tractor_X> rdf:type owl:Class ;
+                                                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <https://kiwerk/wissens-ci/#has_delivery_time> ;
+                                                                         owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                              owl:onDatatype xsd:integer ;
+                                                                                              owl:withRestrictions ( [ xsd:maxInclusive 2
+                                                                                                                     ]
+                                                                                                                   )
+                                                                                            ]
+                                                                       ] ;
+                                                   rdfs:subClassOf <https://kiwerk/wissens-ci/#Delivery> .
+
+
+###  https://kiwerk/wissens-ci/#CR_Storage_Tractor_X
+<https://kiwerk/wissens-ci/#CR_Storage_Tractor_X> rdf:type owl:Class ;
+                                                  owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <https://kiwerk/wissens-ci/#has_height> ;
+                                                                                               owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:integer ;
+                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive 20
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                             ]
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <https://kiwerk/wissens-ci/#has_length> ;
+                                                                                               owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:integer ;
+                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive 20
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                             ]
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty <https://kiwerk/wissens-ci/#has_width> ;
+                                                                                               owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                    owl:onDatatype xsd:integer ;
+                                                                                                                    owl:withRestrictions ( [ xsd:minInclusive 15
+                                                                                                                                           ]
+                                                                                                                                         )
+                                                                                                                  ]
+                                                                                             ]
+                                                                                           ) ;
+                                                                        rdf:type owl:Class
+                                                                      ] ;
+                                                  rdfs:subClassOf <https://kiwerk/wissens-ci/#Storage> .
+
+
+###  https://kiwerk/wissens-ci/#CR_Tractor_X
+<https://kiwerk/wissens-ci/#CR_Tractor_X> rdf:type owl:Class ;
+                                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <https://kiwerk/wissens-ci/#has_component> ;
+                                                                                       owl:someValuesFrom <https://kiwerk/wissens-ci/#MAN_D1556>
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <https://kiwerk/wissens-ci/#has_delivery> ;
+                                                                                       owl:someValuesFrom <https://kiwerk/wissens-ci/#CR_Delivery_Tractor_X>
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <https://kiwerk/wissens-ci/#has_standard> ;
+                                                                                       owl:someValuesFrom <https://kiwerk/wissens-ci/#Emission_Standard_Level_5>
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <https://kiwerk/wissens-ci/#has_storage> ;
+                                                                                       owl:someValuesFrom <https://kiwerk/wissens-ci/#CR_Storage_Tractor_X>
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty <https://kiwerk/wissens-ci/#has_weight> ;
+                                                                                       owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                            owl:onDatatype xsd:integer ;
+                                                                                                            owl:withRestrictions ( [ xsd:maxExclusive 3
+                                                                                                                                   ]
+                                                                                                                                 )
+                                                                                                          ]
+                                                                                     ]
+                                                                                   ) ;
+                                                                rdf:type owl:Class
+                                                              ] ;
+                                          rdfs:subClassOf <https://kiwerk/wissens-ci/#Product> .
+
+
+###  https://kiwerk/wissens-ci/#Component
+<https://kiwerk/wissens-ci/#Component> rdf:type owl:Class .
+
+
+###  https://kiwerk/wissens-ci/#Delivery
+<https://kiwerk/wissens-ci/#Delivery> rdf:type owl:Class .
+
+
+###  https://kiwerk/wissens-ci/#Delivery_Tractor_X
+<https://kiwerk/wissens-ci/#Delivery_Tractor_X> rdf:type owl:Class ;
+                                                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <https://kiwerk/wissens-ci/#has_delivery_time> ;
+                                                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                           owl:onDatatype xsd:integer ;
+                                                                                           owl:withRestrictions ( [ xsd:maxInclusive 3
+                                                                                                                  ]
+                                                                                                                )
+                                                                                         ]
+                                                                    ] ;
+                                                rdfs:subClassOf <https://kiwerk/wissens-ci/#Delivery> .
+
+
+###  https://kiwerk/wissens-ci/#Emission_Standard
+<https://kiwerk/wissens-ci/#Emission_Standard> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://kiwerk/wissens-ci/#Standard> .
+
+
+###  https://kiwerk/wissens-ci/#Emission_Standard_Level_5
+<https://kiwerk/wissens-ci/#Emission_Standard_Level_5> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://kiwerk/wissens-ci/#Emission_Standard> .
+
+
+###  https://kiwerk/wissens-ci/#Emission_Standard_Level_6
+<https://kiwerk/wissens-ci/#Emission_Standard_Level_6> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <https://kiwerk/wissens-ci/#Emission_Standard> .
+
+
+###  https://kiwerk/wissens-ci/#MAN_D1556
+<https://kiwerk/wissens-ci/#MAN_D1556> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://kiwerk/wissens-ci/#Motor> .
+
+
+###  https://kiwerk/wissens-ci/#MAN_D4276
+<https://kiwerk/wissens-ci/#MAN_D4276> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://kiwerk/wissens-ci/#Motor> .
+
+
+###  https://kiwerk/wissens-ci/#Motor
+<https://kiwerk/wissens-ci/#Motor> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://kiwerk/wissens-ci/#Component> .
+
+
+###  https://kiwerk/wissens-ci/#Product
+<https://kiwerk/wissens-ci/#Product> rdf:type owl:Class .
+
+
+###  https://kiwerk/wissens-ci/#Standard
+<https://kiwerk/wissens-ci/#Standard> rdf:type owl:Class .
+
+
+###  https://kiwerk/wissens-ci/#Storage
+<https://kiwerk/wissens-ci/#Storage> rdf:type owl:Class .
+
+
+###  https://kiwerk/wissens-ci/#Storage_Tractor_X
+<https://kiwerk/wissens-ci/#Storage_Tractor_X> rdf:type owl:Class ;
+                                               owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <https://kiwerk/wissens-ci/#has_height> ;
+                                                                                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                 owl:onDatatype xsd:integer ;
+                                                                                                                 owl:withRestrictions ( [ xsd:minInclusive 10
+                                                                                                                                        ]
+                                                                                                                                      )
+                                                                                                               ]
+                                                                                          ]
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <https://kiwerk/wissens-ci/#has_length> ;
+                                                                                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                 owl:onDatatype xsd:integer ;
+                                                                                                                 owl:withRestrictions ( [ xsd:minInclusive 20
+                                                                                                                                        ]
+                                                                                                                                      )
+                                                                                                               ]
+                                                                                          ]
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty <https://kiwerk/wissens-ci/#has_width> ;
+                                                                                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                 owl:onDatatype xsd:integer ;
+                                                                                                                 owl:withRestrictions ( [ xsd:minInclusive 15
+                                                                                                                                        ]
+                                                                                                                                      )
+                                                                                                               ]
+                                                                                          ]
+                                                                                        ) ;
+                                                                     rdf:type owl:Class
+                                                                   ] ;
+                                               rdfs:subClassOf <https://kiwerk/wissens-ci/#Storage> .
+
+
+###  https://kiwerk/wissens-ci/#Tractor_X
+<https://kiwerk/wissens-ci/#Tractor_X> rdf:type owl:Class ;
+                                       owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <https://kiwerk/wissens-ci/#has_component> ;
+                                                                                    owl:someValuesFrom <https://kiwerk/wissens-ci/#Motor>
+                                                                                  ]
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <https://kiwerk/wissens-ci/#has_delivery> ;
+                                                                                    owl:someValuesFrom <https://kiwerk/wissens-ci/#Delivery_Tractor_X>
+                                                                                  ]
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <https://kiwerk/wissens-ci/#has_standard> ;
+                                                                                    owl:someValuesFrom <https://kiwerk/wissens-ci/#Emission_Standard>
+                                                                                  ]
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <https://kiwerk/wissens-ci/#has_storage> ;
+                                                                                    owl:someValuesFrom <https://kiwerk/wissens-ci/#Storage_Tractor_X>
+                                                                                  ]
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty <https://kiwerk/wissens-ci/#has_weight> ;
+                                                                                    owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                         owl:onDatatype xsd:integer ;
+                                                                                                         owl:withRestrictions ( [ xsd:maxExclusive 5
+                                                                                                                                ]
+                                                                                                                              )
+                                                                                                       ]
+                                                                                  ]
+                                                                                ) ;
+                                                             rdf:type owl:Class
+                                                           ] ;
+                                       rdfs:subClassOf <https://kiwerk/wissens-ci/#Product> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://kiwerk/wissens-ci/CR_Tractor_1
+:CR_Tractor_1 rdf:type owl:NamedIndividual ,
+                       <https://kiwerk/wissens-ci/#CR_Tractor_X> ;
+              rdfs:label "Konkreter Traktor vom Typ CR_Tractor_X" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
