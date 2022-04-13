@@ -13,6 +13,12 @@ Continuous Integration für Wissensbasen.
 
 ## Grundlagen
 
+### Instanz-Daten
+
+Instanz-Daten bezeichnet alle Instanzen aller Klassen einer [Wissensbasis](#Wissensbasis).
+Klassen in einer Wissensbasis stellen Baupläne dar und Instanzen erlauben die Nutzung der Klassen.
+Man nennt Instanzen manchmal auch Invididuen.
+
 ### Wissensbasis
 
 Im Kontext dieses Projektes ist eine Wissensbasis eine Sammlung von strukturierten Daten bzw. formalisiertes Wissen.
@@ -57,6 +63,8 @@ java -jar ./bin/Checker.jar
 
 [SHACL](https://www.w3.org/TR/shacl/) kann genutzt werden, um Regeln für Wissensbasen zu beschreiben.
 Mithilfe eines SHACL Prozessors wie [Apache Jena SHACL](https://jena.apache.org/documentation/shacl/index.html) kann geprüft werden, ob eine Wissensbasis die aufgestellten Regeln erfüllt.
+
+Der Fokus liegt hier auf den [Instanz-Daten][#Instanz-Daten], nicht den Klassen.
 
 ```bash
 ./apache-jena/bin/shacl validate --shapes SHAPES.ttl --data DATA.ttl
