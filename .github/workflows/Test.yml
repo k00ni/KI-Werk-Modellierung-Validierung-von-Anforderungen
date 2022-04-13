@@ -12,4 +12,8 @@ jobs:
       with:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '17'
+    # check that knowledge file is consistent and all of its classes are satisfiable
     - run: java -jar bin/Checker.jar
+    # download Apache Jena (with SHACL bin)
+    - run: wget -c https://dlcdn.apache.org/jena/binaries/apache-jena-4.4.0.tar.gz -O - | tar -xz && mv apache-jena-4.4.0 apache-jena
+    - run: ./apache-jena/bin/shacl validate --data knowledge.ttl
