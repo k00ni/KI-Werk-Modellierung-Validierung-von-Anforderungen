@@ -6,7 +6,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <https://kiwerk/wissens-ci/> .
 
-<https://kiwerk/wissens-ci/> rdf:type owl:Ontology .
+<https://kiwerk/wissens-ci/> rdf:type owl:Ontology ;
+                              owl:imports <http://www.w3.org/ns/shacl#> .
 
 #################################################################
 #    Object Properties

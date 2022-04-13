@@ -16,4 +16,5 @@ jobs:
     - run: java -jar bin/Checker.jar
     # download Apache Jena (with SHACL bin)
     - run: wget -c https://dlcdn.apache.org/jena/binaries/apache-jena-4.4.0.tar.gz -O - | tar -xz && mv apache-jena-4.4.0 apache-jena
-    - run: ./apache-jena/bin/shacl validate --data knowledge.ttl
+    # Validate knowledge.ttl using SHACL shapes from knowledge-shacl.ttl
+    - run: ./apache-jena/bin/shacl validate --data knowledge.ttl --shapes knowledge-shapes.ttl
