@@ -60,11 +60,13 @@
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="/home/ka/Dokumente/eclipse-workspace"/>
 		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
 		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Checker - wissensci"/>
-		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="wissensci/bin/Checker.jar"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="/home/ka/Dokumente/KI-Werk-WissensCI/bin/Checker.jar"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/home/ka/Dokumente/KI-Werk-WissensCI/bin/Checker.jar"/>
 			<item value="wissensci/bin/Checker.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="/home/ka/Dokumente/eclipse-workspace.xml"/>
 			<item value=".xml"/>
 		</list>
 	</section>
