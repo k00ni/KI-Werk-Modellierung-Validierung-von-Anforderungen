@@ -83,7 +83,7 @@ java -jar ./bin/Checker.jar
 [SHACL](https://www.w3.org/TR/shacl/) kann genutzt werden, um Regeln für Wissensbasen zu beschreiben.
 Mithilfe eines SHACL Prozessors wie [Apache Jena SHACL](https://jena.apache.org/documentation/shacl/index.html) kann geprüft werden, ob eine Wissensbasis die aufgestellten Regeln erfüllt.
 
-Zu beachten ist, dass man nur Regeln über die [Instanzen][#Instanzen] aufstellen kann. Regeln über Klassen und deren Beziehungen sind nicht möglich.
+Zu beachten ist, dass man nur Regeln über die (Instanzen)[#Instanz] aufstellen kann. Regeln über Klassen und deren Beziehungen sind nicht möglich.
 
 ```bash
 ./apache-jena/bin/shacl validate --shapes SHAPES.ttl --data DATA.ttl
