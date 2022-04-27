@@ -16,7 +16,7 @@ Continuous Integration für Wissensbasen.
 ### Axiom
 
 Ein Axiom ist eine Aussage, die innerhalb eines klar benannten Wissensgebietes als `wahr` angesehen wird.
-Zum Bespiel wäre im Wissensgebiet "Personalverwaltung" sind folgende Aussagen `wahr`:
+Zum Bespiel wären im Wissensgebiet "Personalverwaltung" die folgende Aussagen `wahr`:
 
 ```
 Ein Mitarbeiter ist eine Person.
@@ -24,11 +24,11 @@ Eine Person ist ein Mensch.
 Hans ist ein Mitarbeiter und damit auch ein Mensch.
 ```
 
-### Instanz-Daten
+### Instanz
 
-Instanz-Daten bezeichnet alle Instanzen aller Klassen einer [Wissensbasis](#Wissensbasis).
+Instanz oder Instanz-Daten bezeichnet alle Instanzen aller Klassen einer [Wissensbasis](#Wissensbasis).
 Klassen in einer Wissensbasis stellen Baupläne dar und Instanzen erlauben die Nutzung der Klassen.
-Man nennt Instanzen manchmal auch Invididuen.
+Man nennt Instanzen auch Invididuen.
 
 ### Widerspruch
 
@@ -83,7 +83,7 @@ java -jar ./bin/Checker.jar
 [SHACL](https://www.w3.org/TR/shacl/) kann genutzt werden, um Regeln für Wissensbasen zu beschreiben.
 Mithilfe eines SHACL Prozessors wie [Apache Jena SHACL](https://jena.apache.org/documentation/shacl/index.html) kann geprüft werden, ob eine Wissensbasis die aufgestellten Regeln erfüllt.
 
-Zu beachten ist, dass man nur Regeln über die [Instanzen][#Instanz-Daten] aufstellen kann. Regeln über Klassen und deren Beziehungen sind nicht möglich.
+Zu beachten ist, dass man nur Regeln über die [Instanzen][#Instanzen] aufstellen kann. Regeln über Klassen und deren Beziehungen sind nicht möglich.
 
 ```bash
 ./apache-jena/bin/shacl validate --shapes SHAPES.ttl --data DATA.ttl
@@ -101,5 +101,5 @@ TODO
 
 ### Hinweise zu Protégé
 
-* Protege's Reasoner schließt bei Prüfung auch Instanz-Daten mit ein. Das heißt, dass an einer Klasse "owl:Nothing" angezeigt wird, wenn eine ihrer Instanzen ungültige Werte nutzt
+* Protege's Reasoner schließt bei Prüfung auch Instanzen mit ein. Das heißt, dass an einer Klasse "owl:Nothing" angezeigt wird, wenn eine ihrer Instanzen ungültige Werte nutzt
 * Nutzt man einen Reasoner, dann muss nach Änderungen an der Wissensbasis dieser neu synchronisiert werden (Reasoner => Synchronize Reasoner)
