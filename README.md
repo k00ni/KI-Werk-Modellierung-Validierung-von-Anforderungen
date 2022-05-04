@@ -121,3 +121,8 @@ TODO
 
 * Protege's Reasoner schließt bei Prüfung auch Instanzen mit ein. Das heißt, dass an einer Klasse "owl:Nothing" angezeigt wird, wenn eine ihrer Instanzen ungültige Werte nutzt
 * Nutzt man einen Reasoner, dann muss nach Änderungen an der Wissensbasis dieser neu synchronisiert werden (Reasoner => Synchronize Reasoner)
+
+### Interessante Beiträge
+
+* *Why I Don’t Use OWL Anymore*, 2021 - https://www.topquadrant.com/owl-blog/
+* *Why I Use SHACL For Defining Ontology Models*, 2021 - https://www.topquadrant.com/shacl-blog/

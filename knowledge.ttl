@@ -20,6 +20,13 @@
                    rdfs:range :Fahrassistent .
 
 
+###  https://kiwerk/wissens-ci/hat_lieferkettenglied
+:hat_lieferkettenglied rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf <http://www.onto-med.de/ontologies/gfo.owl#has_proper_part> ;
+                       rdfs:domain :Lieferkette ;
+                       rdfs:range :Lieferkettenglied .
+
+
 ###  https://kiwerk/wissens-ci/hat_motor
 :hat_motor rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf <http://www.onto-med.de/ontologies/gfo.owl#has_proper_part> ;
@@ -126,6 +133,20 @@
 ###  https://kiwerk/wissens-ci/Fahrassistent
 :Fahrassistent rdf:type owl:Class ;
                rdfs:subClassOf <http://www.onto-med.de/ontologies/gfo.owl#Material_object> .
+
+
+###  https://kiwerk/wissens-ci/Lieferkette
+:Lieferkette rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.onto-med.de/ontologies/gfo.owl#Discrete_process> ;
+             rdfs:comment """Eine Lieferkette ist ein besonderer diskreter Prozess.
+Diese Art von Prozess besteht aus einer Menge von Lieferanten (Knoten), die mittels gerichteter Kanten miteinander verbunden sind.
+Ein Lieferant kann dabei von n (0 < n) weitere Lieferanten abhängig sein.
+Eine Kante geht immer von einem Lieferanten, der einem anderen zuarbeitet (z.B. Lieferant A <--- Lieferant B, wobei B A zuarbeitet).""" .
+
+
+###  https://kiwerk/wissens-ci/Lieferkettenglied
+:Lieferkettenglied rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.onto-med.de/ontologies/gfo.owl#State> .
 
 
 ###  https://kiwerk/wissens-ci/Motor
