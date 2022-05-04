@@ -15,8 +15,8 @@ Continuous Integration für Wissensbasen.
 
 ### Axiom
 
-Ein Axiom ist eine Aussage, die innerhalb eines klar benannten Wissensgebietes als `wahr` angesehen wird.
-Zum Bespiel wären im Wissensgebiet "Personalverwaltung" die folgende Aussagen `wahr`:
+Ein Axiom ist eine Aussage, die innerhalb eines klar benannten Wissensgebietes (aka Fachgebiet, Domäne) als `wahr` angesehen wird.
+Zum Beispiel wären im Wissensgebiet "Personalverwaltung" die folgende Aussagen `wahr`:
 
 ```
 Ein Mitarbeiter ist eine Person.
@@ -83,7 +83,7 @@ java -jar ./bin/Checker.jar
 [SHACL](https://www.w3.org/TR/shacl/) kann genutzt werden, um Regeln für Wissensbasen zu beschreiben.
 Mithilfe eines SHACL Prozessors wie [Apache Jena SHACL](https://jena.apache.org/documentation/shacl/index.html) kann geprüft werden, ob eine Wissensbasis die aufgestellten Regeln erfüllt.
 
-Zu beachten ist, dass man nur Regeln über die (Instanzen)[#Instanz] aufstellen kann. Regeln über Klassen und deren Beziehungen sind nicht möglich.
+Zu beachten ist, dass man nur Regeln über die [Instanzen](#Instanz) aufstellen kann. Regeln über Klassen und deren Beziehungen sind nicht möglich.
 
 ```bash
 ./apache-jena/bin/shacl validate --shapes SHAPES.ttl --data DATA.ttl

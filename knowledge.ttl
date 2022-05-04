@@ -102,7 +102,7 @@
                                                                      owl:onProperty :hat_zeitraum_in_tagen ;
                                                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
                                                                                           owl:onDatatype xsd:int ;
-                                                                                          owl:withRestrictions ( [ xsd:maxExclusive "2"^^xsd:int
+                                                                                          owl:withRestrictions ( [ xsd:maxExclusive "10"^^xsd:int
                                                                                                                  ]
                                                                                                                )
                                                                                         ]
@@ -158,7 +158,25 @@
                                                           owl:onProperty :hat_breite ;
                                                           owl:someValuesFrom [ rdf:type rdfs:Datatype ;
                                                                                owl:onDatatype xsd:float ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive "0.0"^^xsd:float
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hat_breite ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:float ;
                                                                                owl:withRestrictions ( [ xsd:maxInclusive "2.5"^^xsd:float
+                                                                                                      ]
+                                                                                                    )
+                                                                             ]
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hat_höhe ;
+                                                          owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                               owl:onDatatype xsd:float ;
+                                                                               owl:withRestrictions ( [ xsd:minExclusive "0.0"^^xsd:float
                                                                                                       ]
                                                                                                     )
                                                                              ]
