@@ -1,15 +1,89 @@
-@prefix :    <https://kiwerk/wissens-ci/> .
-@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix :       <https://kiwerk/wissens-ci/> .
+@prefix data:   <https://kiwerk/wissens-ci/data/> .
+@prefix dbr:   <http://dbpedia.org/resource/> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s:      <https://kiwerk/wissens-ci/shacl-rules/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 
-:GültigeMehrwertsteuerSätzeShape
+#
+# SHACL rules -----------------------------------------------------
+#
+s:Traktor1234Shape
     a sh:NodeShape ;
-    sh:targetNode :GültigeMehrwertsteuerSätze ;
+    sh:targetClass :Traktor1234 ;
+    # partly duplicate information about constraints (from knowledge.ttl)
     sh:property [
-        sh:path :has_value ;
-        sh:datatype xsd:float
+        sh:path :hat_breite ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0.01 ;
+        sh:maxInclusive 2.5 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path :hat_höhe ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0.01 ;
+        sh:maxInclusive 4.0 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
     ]
     .
+
+s:AnlieferungTraktor1234Shape
+    a sh:NodeShape ;
+    sh:targetClass :AnlieferungTraktor1234 ;
+    # partly duplicate information about constraints (from knowledge.ttl)
+    sh:property [
+        sh:path :hat_zeitraum_in_tagen ;
+        sh:datatype xsd:int ;
+        sh:minInclusive 1 ;
+        sh:maxInclusive 10 ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path :hat_startort ;
+        sh:class :Ort ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ] ;
+    sh:property [
+        sh:path :hat_zielort ;
+        sh:class :Ort ;
+        sh:minCount 1 ;
+        sh:maxCount 1
+    ]
+    .
+
+#
+# Instance Data ---------------------------------------------------
+#
+
+#
+# > Use Case related
+#
+data:Traktor1234Instanz
+    a :Traktor1234 ;
+    :hat_breite "2.5"^^xsd:float ;
+    :hat_höhe "3.8453221"^^xsd:float
+    .
+
+data:AnlieferungTraktor1234Instanz
+    a :AnlieferungTraktor1234 ;
+    :hat_zeitraum_in_tagen "8"^^xsd:int ;
+    :hat_startort dbr:Leipzig ;
+    :hat_zielort dbr:Chemnitz ;
+    :hat_transportobjekt data:Traktor1234Instanz
+    .
+
+#
+# > World knowledge
+#
+dbr:Leipzig a :Ort .
+
+dbr:Chemnitz a :Ort .

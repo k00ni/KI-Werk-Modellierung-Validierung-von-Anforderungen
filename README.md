@@ -67,7 +67,7 @@ Im Erfolgsfall wird "Knowledge consistent" auf der Konsole ausgegeben, ansonsten
 
 ## Erfüllbarkeit
 
-Eine Wissensbasis ist erfüllbar, wenn alle Klassen instanziiert werden können. 
+Eine Wissensbasis ist erfüllbar, wenn alle Klassen instanziiert werden können.
 Im Umkehrschluss heißt eine Wissensbasis nicht erfüllbar, wenn sie mindestens eine Klasse enthält, die nicht instanziierbar wäre.
 
 Weißt heißt das nun konkret? Man könnte statt Erfüllbarkeit auch "nutzbar" wählen. Eine Klasse, von der man keine Instanzen erzeugen kann, ist nicht nutzbar. Daraus folgt, dass ihre Definition nicht in Ordnung ist. Eine Klasse in OWL verhält sich analog wie eine z.B. in Java. Sie ist ein Bauplan und man kann Instanzen von ihr erzeugen. Diese Instanzen werden auch Individuen genannt.
@@ -83,11 +83,29 @@ java -jar ./bin/Checker.jar
 [SHACL](https://www.w3.org/TR/shacl/) kann genutzt werden, um Regeln für Wissensbasen zu beschreiben.
 Mithilfe eines SHACL Prozessors wie [Apache Jena SHACL](https://jena.apache.org/documentation/shacl/index.html) kann geprüft werden, ob eine Wissensbasis die aufgestellten Regeln erfüllt.
 
-Zu beachten ist, dass man nur Regeln über die [Instanzen](#Instanz) aufstellen kann. Regeln über Klassen und deren Beziehungen sind nicht möglich.
+Zu beachten ist, dass man nur Regeln über die [Instanzen](#Instanz) aufstellen kann. Regeln über Klassen und deren Beziehungen sind *nicht* möglich.
+
+Apache Jena stellt einen SHACL Prozessor bereit. Man kann ihn wie folgt ausführen:
 
 ```bash
 ./apache-jena/bin/shacl validate --shapes SHAPES.ttl --data DATA.ttl
 ```
+
+*Hinweis: `SHAPES.ttl` und `DATA.ttl` können auch eine Datei sein (siehe den Link zu Apache Jena SHACL).*
+
+### Anwendungsbereiche
+
+SHACL kann nur für Instanzdaten genutzt werden.
+Aus diesem Grund müssen ggf. Teile aus der Klassen-Ebene in SHACL dupliziert werden, um eine konsistente Wissensbasis auf den verschiedenen Ebenen gewährleisten zu können.
+
+#### Ergänzung von Wissen der Klassen-Ebene
+
+Manche Dinge lassen sich nicht auf Klassen-Ebene abbilden, insbesondere wenn es um konkrete Werte geht.
+Auf Klassen-Ebene beschreibt man z.B. vordergründig Properties und deren Wertebereich und nutzt die Instanz-Ebene, um die konkreten Werte für einen konkreten Anwendungsfall zu modellieren.
+
+#### Einbindung von Weltwissen
+
+Weltwissen kann in verschiedenen Formen vorliegen, z.B. physikalischen Gesetzen oder der Festlegung von Dingen die einfach *sind* (z.B. den Fakt, dass es Personen gibt).
 
 ## SPARQL
 
