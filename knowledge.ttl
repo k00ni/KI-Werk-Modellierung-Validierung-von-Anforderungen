@@ -15,35 +15,35 @@
 
 ###  https://kiwerk/wissens-ci/hat_fahrassistent
 :hat_fahrassistent rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <http://www.onto-med.de/ontologies/gfo.owl#has_proper_part> ;
                    rdfs:domain <http://www.onto-med.de/ontologies/gfo.owl#Material_object> ;
                    rdfs:range :Fahrassistent .
 
 
 ###  https://kiwerk/wissens-ci/hat_motor
 :hat_motor rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf <http://www.onto-med.de/ontologies/gfo.owl#has_proper_part> ;
            rdfs:domain <http://www.onto-med.de/ontologies/gfo.owl#Material_object> ;
            rdfs:range :Motor .
 
 
 ###  https://kiwerk/wissens-ci/hat_startort
 :hat_startort rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://www.onto-med.de/ontologies/gfo.owl#proper_part_of> ;
               rdfs:domain :Anlieferung ;
               rdfs:range :Ort .
 
 
 ###  https://kiwerk/wissens-ci/hat_transportobjekt
 :hat_transportobjekt rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf <http://www.onto-med.de/ontologies/gfo.owl#proper_part_of> ;
                      rdfs:domain :Anlieferung ;
                      rdfs:range <http://www.onto-med.de/ontologies/gfo.owl#Material_object> .
 
 
-###  https://kiwerk/wissens-ci/hat_zeitraum
-:hat_zeitraum rdf:type owl:ObjectProperty ;
-              rdfs:domain :Anlieferung .
-
-
 ###  https://kiwerk/wissens-ci/hat_zielort
 :hat_zielort rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf <http://www.onto-med.de/ontologies/gfo.owl#proper_part_of> ;
              rdfs:domain :Anlieferung ;
              rdfs:range :Ort .
 
