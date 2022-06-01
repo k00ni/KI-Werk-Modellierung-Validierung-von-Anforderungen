@@ -140,7 +140,7 @@
              rdfs:subClassOf <http://www.onto-med.de/ontologies/gfo.owl#Discrete_process> ;
              rdfs:comment """Eine Lieferkette ist ein besonderer diskreter Prozess.
 Diese Art von Prozess besteht aus einer Menge von Lieferanten (Knoten), die mittels gerichteter Kanten miteinander verbunden sind.
-Ein Lieferant kann dabei von n (0 < n) weitere Lieferanten abhängig sein.
+Ein Lieferant kann dabei von n (n>0) weitere Lieferanten abhängig sein.
 Eine Kante geht immer von einem Lieferanten, der einem anderen zuarbeitet (z.B. Lieferant A <--- Lieferant B, wobei B A zuarbeitet).""" .
 
 
