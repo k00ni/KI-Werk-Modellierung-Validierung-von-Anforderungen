@@ -1,6 +1,6 @@
-# KI-Werk WissensCI
+# KI-Werk: Modellierung und Validierung von Anforderungen mittels Semantic Web Technologien
 
-Continuous Integration für Wissensbasen.
+Modellierung und Validierung von Anforderungen an Industrieprodukte mittels Semantic Web Technologien wie OWL-Reasoner oder SHACL.
 
 **Inhaltsverzeichnis:**
 
