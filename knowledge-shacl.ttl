@@ -14,7 +14,7 @@
     owl:imports <http://www.onto-med.de/ontologies/gfo-basic.owl> .
 
 #
-# SHACL rules -----------------------------------------------------
+# SHACL rules #############################################################################################
 #
 s:Traktor1234Shape
     a sh:NodeShape ;
@@ -66,27 +66,8 @@ s:AnlieferungTraktor1234Shape
         ]
     .
 
-:LieferketteShape
-    a sh:NodeShape ;
-    sh:targetClass :Lieferkette ;
-    sh:property
-        [
-            sh:path :hat_lieferkettenglied ;
-            sh:class :Lieferkettenglied ;
-            sh:minCount 1
-        ] .
-
-:LieferkettengliedShape
-    a sh:NodeShape ;
-    sh:targetClass :Lieferkettenglied ;
-    sh:property
-        [
-            sh:path rdfs:label ;
-            sh:minCount 1
-        ] .
-
 #
-# Instance Data ---------------------------------------------------
+# Instance Data ###########################################################################################
 #
 
 #
@@ -105,32 +86,6 @@ data:AnlieferungTraktor1234Instanz
     :hat_zielort dbr:Chemnitz ;
     :hat_transportobjekt data:Traktor1234Instanz
     .
-
-#
-# Repräsentiert die folgende Lieferkette:
-#                                          _,--- Lieferant 2
-#       Auftraggeber <----- Lieferant 1 --{
-#                                          `---- Lieferant 3
-#
-data:Lieferkette1FürTraktor1234
-    a :Lieferkette ;
-    :hat_lieferkettenglied
-        [
-            a :Lieferkettenglied ;
-            :order rdf:_0 ;
-            rdfs:label "Auftraggeber"
-        ] ,
-        [
-            a :Lieferkettenglied ;
-            :order rdf:_1 ;
-            rdfs:label "Lieferant 1"
-        ] ,
-        [
-            a :Lieferkettenglied ;
-            :order rdf:_2 ;
-            rdfs:label "Lieferant 3"
-        ] .
-# TODO: Kettenglieder müssen per State1 + State2 verknüpft werden, um die Richtung festzulegen!
 
 #
 # > World knowledge ---------------
