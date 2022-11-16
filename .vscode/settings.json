@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "java/kiwerk/src/main/java/com/kiwerk"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}

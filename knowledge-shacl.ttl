@@ -71,7 +71,7 @@ s:AnlieferungTraktor1234Shape
 #
 
 #
-# > Use Case related ..............
+# > Use Case related --------------------------------------------------------------------------------------
 #
 data:Traktor1234Instanz
     a :Traktor1234 ;
@@ -88,7 +88,7 @@ data:AnlieferungTraktor1234Instanz
     .
 
 #
-# > World knowledge ---------------
+# > World knowledge ---------------------------------------------------------------------------------------
 #
 dbr:Leipzig a :Ort .
 
