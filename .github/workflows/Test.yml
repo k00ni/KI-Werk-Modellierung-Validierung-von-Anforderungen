@@ -12,10 +12,9 @@ jobs:
       with:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '17'
+
     # check that knowledge file is consistent and all of its classes are satisfiable
-    - run: java -jar bin/Checker.jar
-    # download Apache Jena (with SHACL bin)
-    # TODO is there a way to use a generic link without the need to update it frequently?
-    - run: wget -c https://dlcdn.apache.org/jena/binaries/apache-jena-4.5.0.tar.gz -O - | tar -xz && mv apache-jena-4.5.0 apache-jena
-    # Validate knowledge.ttl using SHACL shapes from knowledge-shacl.ttl
-    - run: ./apache-jena/bin/shacl validate --data knowledge.ttl --shapes knowledge-shacl.ttl
+    - run: java -jar bin/OntologyChecker.jar knowledge.ttl
+
+    # Validate knowledge.ttl using (Apache Jena's) SHACL shapes from knowledge-shacl.ttl
+    - run: ./bin/apache-jena-4.6.1/bin/shacl validate --data knowledge.ttl --shapes knowledge-shacl.ttl
