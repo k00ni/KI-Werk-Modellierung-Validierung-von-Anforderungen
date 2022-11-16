@@ -14,7 +14,7 @@ jobs:
         java-version: '17'
 
     # CHECK via OWLReasoner (consistency and all of its classes are satisfiable)
-    - run: java -jar bin/OntologyChecker.jar knowledge.ttl
+    - run: java -jar ./bin/OntologyChecker.jar ./rdf/knowledge.ttl
 
     # CHECK via SHACL (use Apache Jena's SHACL implementation)
     - run: ./bin/apache-jena-4.6.1/bin/shacl validate --data ./rdf/knowledge.ttl --shapes ./rdf/knowledge-shacl.ttl
