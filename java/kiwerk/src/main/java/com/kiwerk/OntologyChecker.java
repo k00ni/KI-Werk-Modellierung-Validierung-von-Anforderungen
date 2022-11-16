@@ -22,19 +22,19 @@ public class OntologyChecker
              *
              * run example:
              *
-             *      bin/OntologyChecker.jar knowledge.ttl
+             *      bin/KIWerk.jar ontologycheck knowledge.ttl
              */
-            OntologyChecker r = new OntologyChecker(args[0]);
+            OntologyChecker oc = new OntologyChecker(args[0]);
 
-            if (r.isConsistent()) {
+            if (oc.isConsistent()) {
                 System.out.println("Ontology consistent");
             } else {
                 throw new Exception("Ontology is not consistent");
             }
 
-            r.checkIfAllClassesAreSatisfiable();
+            oc.checkIfAllClassesAreSatisfiable();
         } else {
-            throw new Exception("Invalid parameter list given.");
+            throw new Exception("No or too many parameters given.");
         }
 	}
 
