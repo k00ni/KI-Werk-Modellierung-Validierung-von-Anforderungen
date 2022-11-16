@@ -1,0 +1,6 @@
+PREFIX : <https://kiwerk/wissens-ci/>
+PREFIX data: <https://kiwerk/wissens-ci/data/>
+ASK {
+    data:Traktor1234Instanz :hat_breite ?breite .
+    FILTER(?breite < 2)
+}

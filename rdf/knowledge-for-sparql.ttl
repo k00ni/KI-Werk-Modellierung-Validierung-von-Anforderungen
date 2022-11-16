@@ -1,0 +1,21 @@
+@prefix : <https://kiwerk/wissens-ci/> .
+@prefix data: <https://kiwerk/wissens-ci/data/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://kiwerk/wissens-ci/> .
+
+<https://kiwerk/wissens-ci/> rdf:type owl:Ontology ;
+                             owl:imports <http://www.onto-med.de/ontologies/gfo-basic.owl> .
+
+data:Traktor1234Instanz
+    a :Traktor1234 ;
+    :hat_breite "2.5"^^xsd:float ;
+    :hat_höhe "3.8453221"^^xsd:float
+    .
+
+:hat_breite rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf :DataPropertyOnAMaterialObject ;
+            rdfs:range xsd:float .

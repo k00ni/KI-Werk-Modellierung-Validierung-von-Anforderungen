@@ -13,8 +13,11 @@ jobs:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '17'
 
-    # check that knowledge file is consistent and all of its classes are satisfiable
+    # CHECK via OWLReasoner (consistency and all of its classes are satisfiable)
     - run: java -jar bin/OntologyChecker.jar knowledge.ttl
 
-    # Validate knowledge.ttl using (Apache Jena's) SHACL shapes from knowledge-shacl.ttl
-    - run: ./bin/apache-jena-4.6.1/bin/shacl validate --data knowledge.ttl --shapes knowledge-shacl.ttl
+    # CHECK via SHACL (use Apache Jena's SHACL implementation)
+    - run: ./bin/apache-jena-4.6.1/bin/shacl validate --data ./rdf/knowledge.ttl --shapes ./rdf/knowledge-shacl.ttl
+
+    # CHECK via SHACL (use Apache Jena's SHACL implementation)
+    - run: ./bin/apache-jena-4.6.1/bin/sparql --data=./rdf/knowledge-for-sparql.ttl --query=./sparql/query1.sparql
